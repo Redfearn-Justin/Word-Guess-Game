@@ -17,6 +17,7 @@
 
 </head>
 <body>
+
     <!--header-->
     <header class="content">
 
@@ -24,11 +25,12 @@
             <hr>
 
     </header>
+
     <!--content layout-->
     <section class="content">
         <div>
             <p> 
-                Press any key to start...
+                Press the button below to start...
             </p>
             <p>
                 ...but play at your own risk!
@@ -37,27 +39,32 @@
 
         <br>
 
-        <div id="winsTally">
-            Wins:
+        <div id="winsDiv">
+            Wins = 0
         </div>
 
         <br>
 
-        <div id="currentWord">
+        <div id="currentWordDiv">
             Current Word:
         </div>
 
         <br>
 
-        <div id="guessRemain">
-            Guesses remaining:
+        <div id="guessRemainDiv">
+            Guesses remaining = 8
         </div>
 
         <br>
 
-        <div id="lettersGuessed">
+        <div id="userGuessDiv">
             Letters already guessed:
         </div>
+
+        <br><br>
+
+        <button id="startGame" onclick="startGame()">Start Game</button>
+
     </section>
 
 
