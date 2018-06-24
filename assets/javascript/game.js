@@ -50,6 +50,8 @@
     } // function
     //startGame();
 
+    //FUNCTIONS TO LOOK INTO
+
     //function makeGuess () {
         // Make sure we didn't use this letter yet
         //if (userGuess.indexOf(letterPressed) === -1) {
@@ -81,46 +83,44 @@
            // currentWord[positions[i]] = letterPressed;
        // }
     //}
+    //END
 
     document.onkeydown = function(event) {
 
         var letterPressed = event.key;
 
-         console.log(letterPressed);
-
         //include if/else statements
+
+        //push keyboard presses into 'user guess array' to continuously add entries into 'user guess div'
+        if (letterPressed) {
+            //letterPressed.push(userGuess); ERROR: "FUNCTION NOT DEFINED"
+            document.getElementById("userGuessDiv").textContent = letterPressed;
+            //letterPressed.join();  ERROR: "FUNCTION NOT DEFINED"
+            console.log(letterPressed);
+        }
 
         if (letterPressed.indexOf(currentWord) != -1) {
             console.log();
-            userGuess.push(letterPressed);
         }
 
         if (event.keyCode >= 65 && event.keyCode <= 90) {
-            event.key.toLowerCase();
         }
 
-        //for loop going through the word and comparing the words to the chosen, buiilding the placeholder array
+        //for loop going through the word and comparing the words to the chosen, building the placeholder array
 
         //look up join function in javascript
     }
 
+    //END GAME IF STATEMENT
     //if (guessRemain <= 0) {
         //document.getElementById("gameOver").textContent = "GAME OVER!!!";
         //userFinished = true;
     //}
 
-    // fuction
-
-    //through key functions, record what the user is pressing
-
-    //"log" inputs into "letters guessed" div
+// CHECKLIST
 
     //for letters that are correct, ensure letter appears in "current word" div, replacing the "_"
 
     //FOR each guess wrong, ensure the "guesses remaining" ticks down by one
 
     //VICTORY CONDITIONS EXECUTE: if all letters guessed correctly, execute 6.W: if not, execute 6.L. For BOTH Conditions, make sure the game refreshed for another attempt
-
-    // WIN (Optional) play win sound queues/songs
-
-    // LOSE (Optional) play loosing sound queues/songs

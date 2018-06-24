@@ -10,72 +10,75 @@
 
         <!--Javascript link-->
         <script src="assets/javascript/game.js"></script>
-        <!--CSS link-->
-        <link href="assets/css/style.css" rel="stylesheet">
         <!--CSS Reset link-->
         <link href="assets/css/reset.css" rel="stylesheet">
+        <!--CSS link-->
+        <link href="assets/css/style.css" rel="stylesheet">
+        <!--google fonts link-->
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
 </head>
 <body>
 
     <!--header-->
-    <header class="content">
+    <header>
 
-        <h1> Video game Word Guess game!!</h1>
-            <hr>
+        <h1>
+            Word Guess game (Gamer Edition)
+        </h1>
+        
+        <hr>
 
     </header>
 
     <!--content layout-->
-    <section class="content">
+    <section id="section1" class="content">
         <div>
             <p> 
-                Press the button below to start...
+                Press the button to start...
             </p>
-            <p>
-                ...but play at your own risk!
-            </p>
+            <br><br>
+
+        </div>
+
+        <div id="section2" class="content">
+                Wins
+            <br>
+                <div id="winsDiv">0</div>
         </div>
 
         <br>
 
-        <div>
-            Wins
+        <div class="content">
+                Current Word
             <br>
-            <div id="winsDiv">0</div>
+                <div id="currentWordDiv"></div>
         </div>
 
         <br>
 
-        <div>
-            Current Word
+        <div class="content">
+                Guesses remaining
             <br>
-            <div id="currentWordDiv"></div>
+                <div id="guessRemainDiv">10</div>
         </div>
 
         <br>
 
-        <div>
-            Guesses remaining
+        <div class="content">
+                Letters already guessed:
             <br>
-            <div id="guessRemainDiv">10</div>
-        </div>
-
-        <br>
-
-        <div>
-            Letters already guessed:
-            <br>
-            <div id="userGuessDiv"></div>
+                <div id="userGuessDiv"></div>
         </div>
 
         <br><br>
 
-        <button id="startGame" onclick="startGame()">Start Game</button>
+        <button id="startGame" class="content" onclick="startGame()">Start Game</button>
 
-        <div id="gameOver"></div>
+        <div id="gameOver" class="content"></div>
 
     </section>
+
 
 
 </body>
