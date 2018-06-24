@@ -1,6 +1,6 @@
 //array of words for the computer to choose from (object/array)
 
-    var guessWords = [ "Nintendo", "Pong", "Atari", "Xbox", "Switch", "PlayStation", "Sega", "Sonic", "Mario", "Kratos", "Asteroids", "Forza", "Yoshi", "Sweet Tooth", "Master Chief", "PC", "Warcraft", "Starcraft", "Halo", "Call Of Duty", "Battlefield", "Gears Of War", "Splinter Cell", "Super Smash Brothers", "Fire Emblem", "Pokemon", "Infamous", "Fusion Frenzy", "Shadow Of The Colossus", "Persona", "Fable", "Between Good and Evil", "Half Life", "BioShock", "Red Dead Redemption", "DOTA", "Street Fighter", "Ryu", "Chun Li", "Devil May Cry", "Max Payne", "Grand Theft Auto","Heavy Rain", "Killzone", "Helghast","Ace Combat", "Spyro", "Crash Bandicoot", "Chrono Trigger", "Dragon Quest", "Mass Effect", "God Of War", "Sly Cooper", "Super Mario Sunshine", "Legend Of Zelda", "Turock"];
+    var guessWords = [ "Nintendo", "Pong", "Atari", "Xbox", "Switch", "PlayStation", "Sega", "Sonic", "Mario", "Kratos", "Asteroids", "Forza", "Yoshi", "PC", "Warcraft", "Starcraft", "Halo", "Battlefield", "Pokemon", "Infamous", "Persona", "Fable", "DOTA", "Ryu", "Killzone", "Spyro", "Controller", "Uncharted", "Link", "Zelda", "Turok", "Scorpion", "Raiden", "Quake","Digimon", "Crackdown", "Doom", "Skyrim", "Centipede", "Metroid", "Resistance", "Sephiroth", "Cloud", "Battletoads", "Castlevania"];
 
 
     //array for the letters the user has guessed
@@ -10,10 +10,6 @@
     //array for placeholder "_"
 
     var placeholder = [];
-
-    //array for properly guessed words
-
-    var correctGuess = [];
 
     // Variables to track wins, guesses remaining
 
@@ -25,25 +21,26 @@
 
     var userFinished = false;
 
-    // computer randomly selects word from array
-
-    var currentWord = guessWords[Math.floor(Math.random() * guessWords.length)];
-
-    console.log(currentWord);
-
+    var currentWord;
 
     function startGame() {
+
+        currentWord = guessWords[Math.floor(Math.random() * guessWords.length)];
+        console.log(currentWord);
 
         //loop for the placeholder array so it'll mimic the word length for each word randomly selected
 
         for (var i = 0; i < currentWord.length; i++) {
-
-            placeholder[i] = "_";
-
-            document.getElementById("currentWordDiv").textContent = "Current Word: " + placeholder;
+            placeholder.push("_");
+            //placeholder[i] = "_";
+            document.getElementById("currentWordDiv").textContent = placeholder;
         } // for loop
-
         console.log(placeholder);
+
+        //clear out arrays
+
+        userGuess = [];
+        placeholder = [];
 
 
     } // function
