@@ -40,9 +40,10 @@
         for (var i = 0; i < currentWord.length; i++) {
             placeholder.push("_");
             //placeholder[i] = "_";
-            document.getElementById("currentWordDiv").textContent = placeholder;
         } // for loop
-        
+
+        document.getElementById("currentWordDiv").textContent = placeholder;
+
         console.log(placeholder);
 
 
@@ -68,6 +69,11 @@
 
         //look up join function in javascript
     }
+
+    //if (guessRemain <= 0) {
+        //document.getElementById("gameOver").textContent = "GAME OVER!!!";
+        //userFinished = true;
+    //}
 
     // fuction
 
