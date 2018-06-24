@@ -50,6 +50,38 @@
     } // function
     //startGame();
 
+    //function makeGuess () {
+        // Make sure we didn't use this letter yet
+        //if (userGuess.indexOf(letterPressed) === -1) {
+            //userGuess.push(letterPressed);
+            //evaluateGuess(letterPressed);
+        //}
+    //}
+
+    //function evaluateGuess () {
+        // Array to store positions of letters in string
+        //var positions = [];
+
+        // Loop through word finding all instances of guessed letter, store the indicies in an array.
+        //for (var i = 0; i < guessWords[currentWord].length; i++) {
+
+            //if(guessWords[currentWord][i] === letterPressed) {
+
+                //positions.push(i);
+            //}
+        //}
+
+        // if there are no indicies, remove a guess and update the hangman image
+        //if (positions.length <= 0) {
+            //guessRemain--;
+       // } 
+        //else {
+        // Loop through all the indicies and replace the '_' with a letter.
+        //for(var i = 0; i < positions.length; i++) {
+           // currentWord[positions[i]] = letterPressed;
+       // }
+    //}
+
     document.onkeydown = function(event) {
 
         var letterPressed = event.key;
@@ -59,10 +91,12 @@
         //include if/else statements
 
         if (letterPressed.indexOf(currentWord) != -1) {
-            //console.log();
+            console.log();
+            userGuess.push(letterPressed);
         }
 
-        if (currentWord.includes(letterPressed)) { 
+        if (event.keyCode >= 65 && event.keyCode <= 90) {
+            event.key.toLowerCase();
         }
 
         //for loop going through the word and comparing the words to the chosen, buiilding the placeholder array
