@@ -15,10 +15,6 @@
 
     var correctGuess = [];
 
-    //current word index
-
-    var currentWordIndex;
-
     // Variables to track wins, guesses remaining
 
     //const triesLeft = 10;
@@ -27,20 +23,20 @@
 
     //boolean response for when the game stops
 
-    var gameOver = true;
+    var userFinished = false;
 
     // computer randomly selects word from array
 
-    var wordSelection = guessWords[Math.floor(Math.random() * guessWords.length)];
+    var currentWord = guessWords[Math.floor(Math.random() * guessWords.length)];
 
-    console.log(wordSelection);
+    console.log(currentWord);
 
 
     function startGame() {
 
         //loop for the placeholder array so it'll mimic the word length for each word randomly selected
 
-        for (var i = 0; i < wordSelection.length; i++) {
+        for (var i = 0; i < currentWord.length; i++) {
 
             placeholder[i] = "_";
 
@@ -61,11 +57,11 @@
 
         //include if/else statements
 
-        if (letterPressed.indexOf(wordSelection) != -1) {
+        if (letterPressed.indexOf(currentWord) != -1) {
             console.log();
         }
 
-        if (wordSelection.includes(letterPressed)) { 
+        if (currentWord.includes(letterPressed)) { 
         }
 
         //for loop going through the word and comparing the words to the chosen, buiilding the placeholder array
