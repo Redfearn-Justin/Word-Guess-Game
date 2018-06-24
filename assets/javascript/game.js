@@ -1,6 +1,6 @@
 //array of words for the computer to choose from (object/array)
 
-    var guessWords = [ "Nintendo", "Pong", "Atari", "Xbox", "Switch", "PlayStation", "Sega", "Sonic", "Mario", "Kratos", "Asteroids", "Forza", "Yoshi", "PC", "Warcraft", "Starcraft", "Halo", "Battlefield", "Pokemon", "Infamous", "Persona", "Fable", "DOTA", "Ryu", "Killzone", "Spyro", "Controller", "Uncharted", "Link", "Zelda", "Turok", "Scorpion", "Raiden", "Quake","Digimon", "Crackdown", "Doom", "Skyrim", "Centipede", "Metroid", "Resistance", "Sephiroth", "Cloud", "Battletoads", "Castlevania"];
+    var guessWords = [ "Nintendo", "Pong", "Atari", "Xbox", "Switch", "PlayStation", "Sega", "Sonic", "Mario", "Kratos", "Asteroids", "Forza", "Yoshi", "PC", "Warcraft", "Starcraft", "Halo", "Battlefield", "Pokemon", "Infamous", "Persona", "Fable", "DOTA", "Ryu", "Killzone", "Spyro", "Controller", "Uncharted", "Link", "Zelda", "Turok", "Scorpion", "Raiden", "Quake","Digimon", "Crackdown", "Doom", "Skyrim", "Centipede", "Metroid", "Resistance", "Sephiroth", "Cloud", "Battletoads", "Castlevania", "Diablo", "Elixir"];
 
 
     //array for the letters the user has guessed
@@ -25,8 +25,15 @@
 
     function startGame() {
 
+        //computer selects word from array
+
         currentWord = guessWords[Math.floor(Math.random() * guessWords.length)];
         console.log(currentWord);
+
+        //clear out arrays
+
+        userGuess = [];
+        placeholder = [];
 
         //loop for the placeholder array so it'll mimic the word length for each word randomly selected
 
@@ -35,12 +42,8 @@
             //placeholder[i] = "_";
             document.getElementById("currentWordDiv").textContent = placeholder;
         } // for loop
+        
         console.log(placeholder);
-
-        //clear out arrays
-
-        userGuess = [];
-        placeholder = [];
 
 
     } // function
@@ -55,7 +58,7 @@
         //include if/else statements
 
         if (letterPressed.indexOf(currentWord) != -1) {
-            console.log();
+            //console.log();
         }
 
         if (currentWord.includes(letterPressed)) { 
