@@ -1,9 +1,14 @@
-//array of words for the computer to choose from (object/array)
+
+$(document).ready(function() {
+
+    //array of words for the computer to choose from (object/array)
 
     var guessWords = [ "Nintendo", "Pong", "Atari", "Xbox", "Switch", "PlayStation", "Sega", "Sonic", "Mario", "Kratos", "Asteroids", "Forza", "Yoshi", "PC", "Warcraft", "Starcraft", "Halo", "Battlefield", "Pokemon", "Infamous", "Persona", "Fable", "DOTA", "Ryu", "Killzone", "Spyro", "Controller", "Uncharted", "Link", "Zelda", "Turok", "Scorpion", "Raiden", "Quake","Digimon", "Crackdown", "Doom", "Skyrim", "Centipede", "Metroid", "Resistance", "Sephiroth", "Cloud", "Battletoads", "Castlevania", "Diablo", "Elixir"];
 
 
     //array for the letters the user has guessed
+
+    var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     var userGuess = [];
 
@@ -11,9 +16,12 @@
 
     var placeholder = [];
 
+    //array for current word
+
+    var currentWord = [];
+
     // Variables to track wins, guesses remaining
 
-    //const triesLeft = 10;
     var wins = 0;
     var guessRemain = 10; //give users 10 guesses to guess the word
 
@@ -21,14 +29,18 @@
 
     var userFinished = false;
 
-    var currentWord;
+    var randomSelectWord = guessWords[Math.floor(Math.random() * guessWords.length)];
 
-    function startGame() {
 
-        //computer selects word from array
+    //functions
 
-        currentWord = guessWords[Math.floor(Math.random() * guessWords.length)];
-        console.log(currentWord);
+    function initiateGame() {
+
+        console.log("The randomly selected word is: " + randomSelectWord);
+
+        currentWord.push(randomSelectWord);
+
+        console.log(currentWord + " is currently in the array!");
 
         //clear out arrays
 
@@ -37,85 +49,80 @@
 
         //loop for the placeholder array so it'll mimic the word length for each word randomly selected
 
-        for (var i = 0; i < currentWord.length; i++) {
-            placeholder.push("_");
-            //placeholder[i] = "_";
-        } // for loop
+        for (var i = 0; i < randomSelectWord.length; i++) {
 
-        document.getElementById("currentWordDiv").textContent = placeholder;
+            placeholder.push("_");
+
+            document.getElementById("currentWordDiv").textContent = placeholder.join(" ");
+        } 
 
         console.log(placeholder);
 
+        // gameStatus();
 
-    } // function
-    //startGame();
 
-    //FUNCTIONS TO LOOK INTO
+    }
 
-    //function makeGuess () {
-        // Make sure we didn't use this letter yet
-        //if (userGuess.indexOf(letterPressed) === -1) {
-            //userGuess.push(letterPressed);
-            //evaluateGuess(letterPressed);
-        //}
-    //}
+    // function gameStatus() {
 
-    //function evaluateGuess () {
-        // Array to store positions of letters in string
-        //var positions = [];
+    // }
 
-        // Loop through word finding all instances of guessed letter, store the indicies in an array.
-        //for (var i = 0; i < guessWords[currentWord].length; i++) {
+    // function checkLetters() {
+        
+    // }
 
-            //if(guessWords[currentWord][i] === letterPressed) {
 
-                //positions.push(i);
-            //}
-        //}
+    //on functions
 
-        // if there are no indicies, remove a guess and update the hangman image
-        //if (positions.length <= 0) {
-            //guessRemain--;
-       // } 
-        //else {
-        // Loop through all the indicies and replace the '_' with a letter.
-        //for(var i = 0; i < positions.length; i++) {
-           // currentWord[positions[i]] = letterPressed;
-       // }
-    //}
-    //END
+    $("#startGame").on("click", function() {
 
-    document.onkeydown = function(event) {
+        randomSelectWord = guessWords[Math.floor(Math.random() * guessWords.length)];
+
+        initiateGame();
+
+
+
+
+
+    });
+
+    $(document).on("keypress", function(event) {
 
         var letterPressed = event.key;
 
-        //include if/else statements
+        $("#userGuessDiv").append(letterPressed + " ");
 
-        //push keyboard presses into 'user guess array' to continuously add entries into 'user guess div'
-        if (letterPressed) {
-            //letterPressed.push(userGuess); ERROR: "FUNCTION NOT DEFINED"
-            document.getElementById("userGuessDiv").textContent = letterPressed;
-            //letterPressed.join();  ERROR: "FUNCTION NOT DEFINED"
-            console.log(letterPressed);
+        if(letterPressed.indexOf(alphabet) && letterPressed.indexOf(currentWord) ) { //not working
+
+            console.log("Match made!");
+            
         }
 
-        if (letterPressed.indexOf(currentWord) != -1) {
-            console.log();
+        // if(userFinished) {
+
+        //     console.log("cool stuff bro");
+        // }
+
+        else { //this is working
+
+            userGuess.push(letterPressed);
+
+            guessRemain--;
+
+            $("#guessRemainDiv").text(guessRemain);
+
+            console.log("oops wrong guess!\n" + "Guesses remainging: " + guessRemain);
+
         }
 
-        if (event.keyCode >= 65 && event.keyCode <= 90) {
-        }
+    });
+});
 
-        //for loop going through the word and comparing the words to the chosen, building the placeholder array
+    //WHAT REMAINS TO BE COMPLETED: 
+    //3) If/Else sequences for typing the right/wrong letter compared to chosen random word
+    //4) Making placeholder "_" disappear for every right letter pressed
+    //5) End-game functionality: 1) player guesses right word, wins go up 2) player runs out of guesses, "Game Over" shows, and player cannot keep playing without pressing "start" button again
 
-        //look up join function in javascript
-    }
-
-    //END GAME IF STATEMENT
-    //if (guessRemain <= 0) {
-        //document.getElementById("gameOver").textContent = "GAME OVER!!!";
-        //userFinished = true;
-    //}
 
 // CHECKLIST
 
